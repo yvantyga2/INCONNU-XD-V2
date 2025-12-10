@@ -10,7 +10,7 @@
     "restart": "pm2 restart INCONNU-XD",
     "dev": "node index.js"
   },
-  "keywords": ["inconnu-boy", "whatsapp-bot", "whatsapp md bot"],
+  "keywords": ["inconnu boy", "whatsapp-bot", "whatsapp md bot"],
   "author": "INCONNU BOY",
   "license": "ISC",
   "dependencies": {
