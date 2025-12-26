@@ -1,4 +1,4 @@
-# Use official Node.js image
+# Use official Node.js imag
 FROM node:20-buster
 
 # Set the working directory inside the container
