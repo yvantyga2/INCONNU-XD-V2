@@ -93,7 +93,8 @@ Click the button below to fork the repository and get your own copy:
 ⚡ DEPLOY ON WORKFLOW ⚡
 
 ```
-name: Node.js Auto-Restart CI
+
+   name: Node.js CI
 
 on:
   push:
@@ -102,11 +103,10 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '0 */6 * * *'  # Every 6 hours
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -125,21 +125,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Install FFmpeg
-      run: sudo apt-get update && sudo apt-get install -y ffmpeg
-
-    - name: Start application with timeout
-      run: |
-        echo "🚀 Starting bot (will run max 6 hours)..."
-        timeout 21600s npm start || echo "⏹ Bot stopped or timed out"
-
-    - name: Auto-commit to trigger restart
-      run: |
-        git config --global user.email "autorestart@bot.com"
-        git config --global user.name "Auto Restart Bot"
-        git commit --allow-empty -m "⏱️ Automatic bot restart"
-        git push
-
+    - name: Start application
+      run: npm start 
         
 ```
 
